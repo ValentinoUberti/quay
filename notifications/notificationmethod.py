@@ -226,6 +226,7 @@ class WebhookMethod(NotificationMethod):
         config_data = notification_obj.method_config_dict
         url = config_data.get("url", "")
         if not url:
+            logger.error("webhook URL not provided")
             return
 
         parsed = urlparse(url)
